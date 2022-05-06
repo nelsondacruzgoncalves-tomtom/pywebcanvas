@@ -1,0 +1,25 @@
+<html>
+   <head> 
+        <title>pywebcanvas-example</title>
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+        <script type="text/javascript">
+        async function pywebcanvas(){
+            let pyodide = await loadPyodide();
+            await pyodide.loadPackage("micropip");
+            pyodide.runPythonAsync(`
+                import  micropip, js, asyncio
+                await micropip.install("https://files.pythonhosted.org/packages/8e/f8/73e3dc46d7c779e6b63774e84a02cc4318824e634dabcad15cb81e216d3a/pywebcanvas-0.2.0-py3-none-any.whl")
+                import pywebcanvas as pwc
+                # Your Code Here:
+                canvas = pwc.Canvas(800, 600)
+                canvas.background.fill("blue")
+                text = pwc.Text(text="Hello World from pywebcanvas!", x=100, y=100, size=25, color="yellow")
+                canvas.render(text)
+            `);
+        }
+        pywebcanvas();
+        </script>
+   </head>
+   <body>
+   </body>
+</html>
