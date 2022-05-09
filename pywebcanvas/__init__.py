@@ -5,4 +5,4 @@ from pywebcanvas.logger import logging, log, disable_logging
 from pywebcanvas.loop import Loop
 from pywebcanvas.text import Text
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
