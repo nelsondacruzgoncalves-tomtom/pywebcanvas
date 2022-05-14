@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pywebcanvas"
-version = "0.3.0
+version = "0.3.0"
 description = "A library that allows users to interact with the HTML Canvas with 100% Python + HTML."
 authors = ["Isaac Beverly"]
 readme = "README.md"
