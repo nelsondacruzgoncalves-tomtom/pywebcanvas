@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "pywebcanvas"
 version = "0.3.0
-description = ""
+description = "A library that allows users to interact with the HTML Canvas with 100% Python + HTML."
 authors = ["Isaac Beverly"]
+readme = "README.md"
+homepage = "https://gitlab.com/imbev/pywebcanvas"
+repository = "https://gitlab.com/imbev/pywebcanvas.git"
+keywords = ["pyscript", "web", "canvas"]
 license = "LGPL-3.0-or-later"
 
 [tool.poetry.dependencies]
