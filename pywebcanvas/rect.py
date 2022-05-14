@@ -22,8 +22,8 @@ class Rect:
         args = (self.x, self.y, self.width, self.height)
 
         if self.type_ == "fill":
-            js.document.fillRect(*args)
+            ctx.fillRect(*args)
         elif self.type_ == "stroke":
-            js.document.strokeRect(*args)
+            ctx.strokeRect(*args)
         elif self.type_ == "clear":
-            js.document.clearRect(*args)
+            ctx.clearRect(*args)
