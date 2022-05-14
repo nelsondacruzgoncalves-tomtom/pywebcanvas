@@ -6,14 +6,14 @@ Contributions to pywebcanvas are welcome. Thank you for contributing!
 - [Development](#development)
 - [Promotion](#promotion)
 
-# Requesting Features
+## Requesting Features
 placeholder
 
-# Reporting Bugs
+## Reporting Bugs
 placeholder
 
-# Development
+## Development
 placeholder
 
-# Promotion
+## Promotion
 placeholder
