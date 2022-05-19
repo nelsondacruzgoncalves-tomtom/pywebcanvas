@@ -4,6 +4,9 @@ import pywebcanvas as pwc
 
 
 class Text:
+    """
+    A class used to draw text on the canvas.
+    """
     def __init__(self, text, x, y, size=20, color="black", font="helvetica", stroke=False):
         self.text = text
         self.x, self.y = x, y
@@ -13,6 +16,9 @@ class Text:
         self.stroke = stroke
     
     def render(self, canvas):
+        """
+        Render the text on the canvas.
+        """
         pwc.log(f"Render text {self} at x {self.x}, y {self.y}, size {self.size}, color {self.color}, font {self.font}, stroke {self.stroke}")
 
         ctx = canvas.ctx()
