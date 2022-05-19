@@ -15,7 +15,6 @@ colour = "^0.1.5"
 typer = "^0.4.1"
 
 [tool.poetry.dev-dependencies]
-httpserver = "^1.1.0"
 
 [tool.poetry.scripts]
 pywebcanvas = "pywebcanvas.cli:main"
