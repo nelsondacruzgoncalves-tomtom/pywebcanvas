@@ -37,6 +37,7 @@ def check_collision(x1, y1, w1, h1, x2, y2, w2, h2):
 
 async def ball_movement():
     global ball
+    global speed
     if ball.x+ball.width >= 800 or ball.x <= 0:
         ball_velocity[0] *= random.choice([-1, 1])
         ball_velocity[1] *= random.choice([-1, 1])
@@ -52,6 +53,7 @@ async def ball_movement():
         ball_velocity[0] *= -1
         ball_velocity[1] *= random.choice([-1, 1])
         ball.x += ball_velocity[0] * speed * 15
+        speed += 0.05
 
     ball.x += ball_velocity[0] * speed
     ball.y += -ball_velocity[1] * speed
@@ -59,10 +61,14 @@ async def ball_movement():
 async def check_score():
     global score_data
     global score
+    global speed
+    temp_score_data = score_data
     if ball.x+ball.width >= 800:
         score_data[0] += 1
+        speed = 0.6
     elif ball.x <= 0:
         score_data[1] += 1
+        speed = 0.6
     score.text = f"{score_data[0]}:{score_data[1]}"
 
 async def on_update():
