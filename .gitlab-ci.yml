@@ -1,3 +1,5 @@
+image: python:3.9-slim
+
 pages:
     script:
         - make build_docs
