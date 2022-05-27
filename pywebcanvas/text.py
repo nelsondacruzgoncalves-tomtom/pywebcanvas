@@ -5,9 +5,26 @@ import pywebcanvas as pwc
 
 class Text:
     """
-    A class used to draw text on the canvas.
+    A class used to create and interact with Text.
     """
-    def __init__(self, text, x, y, size=20, color="black", font="helvetica", stroke=False):
+    def __init__(self, text: str, x: int, y: int, size: int=20, 
+                 color: str="black", font: str="helvetica", stroke: bool=False):
+        """
+        Parameters
+        ----------
+        text: str
+              The content of the text to be displayed
+        x: int
+           x position on the canvas
+        y: int
+           y position on the canvas
+        size: int, optional
+              The font size of the text. Default is 20
+        font: str, optional
+              The font of the text. Default is helvetica
+        stroke: bool, optional
+                Whether the text is fill or stroke. Default is False (fill)
+        """
         self.text = text
         self.x, self.y = x, y
         self.size = size
