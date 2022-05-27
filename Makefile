@@ -9,7 +9,11 @@ devserver:
 
 build_docs: setup
 	rm -rdf public/ pyodide.py js.py
+	# Placeholder for pyscript dependencies
 	touch pyodide.py
+	echo "class JsProxy:" > pyodide.py
+	echo "    pass" >> pyodide.py
 	touch js.py
+	# Generate docs
 	poetry run pdoc pywebcanvas -o public/ --docformat numpy
 	rm -rdf pyodide.py js.py
