@@ -13,11 +13,11 @@ class Loop:
     tasks: List[Awaitable]
            A list of the tasks that run on each iteration of the event loop.
     """
-    def __init__(self):
+    def __init__(self) -> None:
         self.loop = asyncio.get_event_loop()
         self.tasks = []
 
-    def add_task(self, task_name: str, task_func: Awaitable):
+    def add_task(self, task_name: str, task_func: Awaitable) -> None:
         """
         Add a task to the event loop.
 
@@ -31,7 +31,7 @@ class Loop:
         pwc.log(f"Create task {task_name} {task_func}")
         self.tasks.append(task_func)
     
-    def run(self):
+    def run(self) -> None:
         """
         Runs the event loop. Errors will be logged if logging is enabled.
         """

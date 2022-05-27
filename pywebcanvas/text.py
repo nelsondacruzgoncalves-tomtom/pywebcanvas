@@ -8,7 +8,8 @@ class Text:
     A class used to create and interact with Text.
     """
     def __init__(self, text: str, x: int, y: int, size: int=20, 
-                 color: str="black", font: str="helvetica", stroke: bool=False):
+                 color: str="black", font: str="helvetica", 
+                 stroke: bool=False) -> None:
         """
         Parameters
         ----------
@@ -32,9 +33,14 @@ class Text:
         self.font = font
         self.stroke = stroke
     
-    def render(self, canvas):
+    def render(self, canvas: pwc.Canvas) -> None:
         """
         Render the text on the canvas.
+
+        Parameters
+        ----------
+        canvas: pywebcanvas.Canvas
+                An instance of pywebcanvas.Canvas
         """
         pwc.log(f"Render text {self} at x {self.x}, y {self.y}, size {self.size}, color {self.color}, font {self.font}, stroke {self.stroke}")
 

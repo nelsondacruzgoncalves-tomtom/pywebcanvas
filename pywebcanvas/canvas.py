@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import js
 import pywebcanvas as pwc
-from typing import Union
+from typing import TYPE_CHECKING, Union
+if TYPE_CHECKING:
+    import pyodide
 
 
 class Canvas:
@@ -48,13 +50,13 @@ class Canvas:
             js.document.getElementById(parent).appendChild(self.canvas)
             pwc.log(f"Create {self} with {width=}, {height=}, {parent=}")
     
-    def ctx(self):
+    def ctx(self) -> pyodide.JsProxy:
         """
         Returns canvas drawing context.
         """
         return self.canvas.getContext("2d")
     
-    def render(self, item: Union[pwc.Rect, pwc.Text]):
+    def render(self, item: Union[pwc.Rect, pwc.Text]) -> None:
         """
         "Renders" a canvas item (rect, text, etc.) by calling the item.render
         method with this canvas object as an argument.
@@ -65,7 +67,7 @@ class Canvas:
         """
         item.render(self)
     
-    def clear(self):
+    def clear(self) -> None:
         """
         Clears canvas.
         """

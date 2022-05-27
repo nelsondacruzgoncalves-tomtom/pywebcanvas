@@ -6,7 +6,7 @@ logging: bool = True
 Whether pywebcanvas will log
 """
 
-def log(message: str):
+def log(message: str) -> None:
     """
     Logs message to console
 
@@ -19,7 +19,7 @@ def log(message: str):
     if logging:
         js.console.log(f"pywebcanvas: {message}")
 
-def disable_logging(disable: bool):
+def disable_logging(disable: bool) -> None:
     """
     Disables logging
 

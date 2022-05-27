@@ -4,7 +4,7 @@ from typing import Callable
 import pywebcanvas as pwc
 
 
-def add_event_handler(event: str, handler: Callable):
+def add_event_handler(event: str, handler: Callable) -> None:
     """
     Add event handler between javascript events and python callables.
 
