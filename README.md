@@ -27,7 +27,7 @@ canvas.render(text)
 
 ## Documentation
 Checkout the following to learn how to use this project:
-- [pywebcanvas](https://gitlab.com/imbev/pywebcanvas/~/tree/master/docs)
+- [pywebcanvas](https://gitlab.com/imbev/pywebcanvas/-/tree/master/docs)
 - [pyscript](https://github.com/pyscript/pyscript)
 - [pyodide](https://readthedocs.org/projects/pyodide/downloads/pdf/latest/)
 - [python](https://docs.python.org/3/)
