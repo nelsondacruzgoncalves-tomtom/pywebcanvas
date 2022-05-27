@@ -11,5 +11,5 @@ build_docs: setup
 	rm -rdf public/ pyodide.py js.py
 	touch pyodide.py
 	touch js.py
-	poetry run pdoc pywebcanvas -o public/
+	poetry run pdoc pywebcanvas -o public/ --docformat numpy
 	rm -rdf pyodide.py js.py
