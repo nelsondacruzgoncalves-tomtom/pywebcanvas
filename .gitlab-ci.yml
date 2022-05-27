@@ -1,0 +1,6 @@
+pages:
+    script:
+        - make build_docs
+    artifacts:
+        paths:
+            - public
