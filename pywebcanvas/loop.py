@@ -1,26 +1,39 @@
-from typing import Awaitable
+from typing import Awaitable, List
 import asyncio
 import pywebcanvas as pwc
 
 class Loop:
     """
     A class to simplify interaction with the event loop.
+
+    Attributes
+    ----------
+    loop: pyodide.webloop.Webloop
+          Handle for the event loop 
+    tasks: List[Awaitable]
+           A list of the tasks that run on each iteration of the event loop.
     """
-    def __init__(self):
+    def __init__(self) -> None:
         self.loop = asyncio.get_event_loop()
         self.tasks = []
 
-    def add_task(self, task_name: str, task_func: Awaitable):
+    def add_task(self, task_name: str, task_func: Awaitable) -> None:
         """
-        Add a task to the event loop. The task will be run on each iteration 
-        of the event loop.
+        Add a task to the event loop.
+
+        Parameters
+        ----------
+        task_name: str
+                   Name of the task. Will be used during logging.
+        task_func: Awaitable
+                   The Python Awaitable to call.
         """
         pwc.log(f"Create task {task_name} {task_func}")
         self.tasks.append(task_func)
     
-    def run(self):
+    def run(self) -> None:
         """
-        Run the event loop.
+        Runs the event loop. Errors will be logged if logging is enabled.
         """
         async def do_loop():
             pwc.log(f"Run loop {self} with tasks {self.tasks}")
