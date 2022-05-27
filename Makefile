@@ -6,3 +6,10 @@ devserver:
 	python3 -m poetry build
 	cp -r dist pywebcanvas-project
 	cd pywebcanvas-project && python3 -m poetry run python3 -m http.server 8080
+
+build_docs: setup
+	rm -rdf public/ pyodide.py js.py
+	touch pyodide.py
+	touch js.py
+	poetry run pdoc pywebcanvas -o public/
+	rm -rdf pyodide.py js.py
