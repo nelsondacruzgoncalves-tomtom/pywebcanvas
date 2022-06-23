@@ -52,5 +52,7 @@ class Image:
         pwc.log(f"Render Image {self} at x {self.x}, y {self.y}, width {self.width}, height {self.height}, image {self.img.src}")
         ctx = canvas.ctx()
         args = (self.img, self.x, self.y, self.width, self.height)
-        ctx = canvas.canvas.getContext("2d")
-        ctx.drawImage(*args)
+        def draw():
+            ctx.drawImage(*args)
+        self.img.addEventListener("load", pyodide.create_proxy(draw))
+
