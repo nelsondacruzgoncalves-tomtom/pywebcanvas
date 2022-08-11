@@ -41,6 +41,6 @@ class Path:
                 ctx.lineTo(*action[1])
             elif action[0] == "fill":
                 if not action[1] == "":
-                    hex_color = Color(action[1][0]).hex 
+                    hex_color = Color(action[1]).hex 
                     ctx.fillStyle = hex_color
                 ctx.fill()
