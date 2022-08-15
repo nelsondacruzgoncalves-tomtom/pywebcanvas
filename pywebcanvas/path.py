@@ -33,6 +33,10 @@ class Path:
         pwc.log(f"Path {self} arc from ({x1_pos}, {y1_pos}) to ({x2_pos}, {y2_pos}) with radius {radius}")
         self.queue.append(("arc_to", (x1_pos, y1_pos, x2_pos, y2_pos, radius)))
 
+    def arc(self, x_pos, y_pos, radius, start_angle, end_angle, counterclockwise=False):
+        pwc.log(f"Path {self} arc around ({x_pos}, {y_pos}) from angle of {start_angle} to angle of {end_angle} with radius {radius}, {counterclockwise=}")
+        self.queue.append(("arc", (x_pos, y_pos, radius, start_angle, end_angle, counterclockwise)))
+
     def fill(self, color=""):
         pwc.log(f"Fill Path {self}")
         self.queue.append(("fill", (color)))
@@ -57,6 +61,8 @@ class Path:
                 ctx.quadraticCurveTo(*action[1])
             elif action[0] == "arc_to":
                 ctx.arcTo(*action[1])
+            elif action[0] == "arc":
+                ctx.arc(*action[1])
             elif action[0] == "fill":
                 if not action[1] == "":
                     hex_color = Color(action[1]).hex 
