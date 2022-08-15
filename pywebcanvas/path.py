@@ -40,6 +40,10 @@ class Path:
     def fill(self, color=""):
         pwc.log(f"Fill Path {self}")
         self.queue.append(("fill", (color)))
+    
+    def clip(self):
+        pwc.log(f"Clip Path {self}")
+        self.queue.append((("clip"), ()))
 
     def render(self, canvas):
         pwc.log(f"Render Path {self} with queue: {self.queue}")
@@ -63,6 +67,8 @@ class Path:
                 ctx.arcTo(*action[1])
             elif action[0] == "arc":
                 ctx.arc(*action[1])
+            elif action[0] == "clip":
+                ctx.clip(*action[1])
             elif action[0] == "fill":
                 if not action[1] == "":
                     hex_color = Color(action[1]).hex 
