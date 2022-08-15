@@ -28,6 +28,10 @@ class Path:
     def quadratic_curve_to(self, c_x_pos, c_y_pos, x_pos, y_pos):
         pwc.log(f"Path {self} quadratic curve to {x_pos}, {y_pos} with control point ({c_x_pos}, {c_y_pos})")
         self.queue.append(("quadratic_curve_to", (c_x_pos, c_y_pos, x_pos, y_pos)))
+    
+    def arc_to(self, x1_pos, y1_pos, x2_pos, y2_pos, radius):
+        pwc.log(f"Path {self} arc from ({x1_pos}, {y1_pos}) to ({x2_pos}, {y2_pos}) with radius {radius}")
+        self.queue.append(("arc_to", (x1_pos, y1_pos, x2_pos, y2_pos, radius)))
 
     def fill(self, color=""):
         pwc.log(f"Fill Path {self}")
@@ -51,6 +55,8 @@ class Path:
                 ctx.bezierCurveTo(*action[1])
             elif action[0] == "quadratic_curve_to":
                 ctx.quadraticCurveTo(*action[1])
+            elif action[0] == "arc_to":
+                ctx.arcTo(*action[1])
             elif action[0] == "fill":
                 if not action[1] == "":
                     hex_color = Color(action[1]).hex 
